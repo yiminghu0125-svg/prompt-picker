@@ -1,0 +1,285 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7f4;
+  --surface: #ffffff;
+  --surface-strong: #eef4ed;
+  --text: #16201c;
+  --muted: #5e6963;
+  --line: #d8ded7;
+  --accent: #1d6b63;
+  --accent-strong: #12524b;
+  --accent-soft: #dcefeb;
+  --warning: #8a4b12;
+  --shadow: 0 18px 50px rgba(22, 32, 28, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(220, 239, 235, 0.7), rgba(245, 247, 244, 0) 280px),
+    var(--bg);
+  color: var(--text);
+  font-family: "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.intro {
+  margin-bottom: 24px;
+}
+
+.intro h1 {
+  margin: 4px 0 8px;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+}
+
+.intro p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.toolbar,
+.workspace {
+  display: grid;
+  gap: 16px;
+}
+
+.toolbar {
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+  margin-bottom: 16px;
+  align-items: end;
+}
+
+.search-field,
+.category-field,
+.field-block {
+  display: grid;
+  gap: 8px;
+}
+
+.search-field span,
+.category-field span,
+.field-block span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+}
+
+input,
+select {
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+textarea {
+  resize: vertical;
+  padding: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(29, 107, 99, 0.16);
+}
+
+.workspace {
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  align-items: start;
+}
+
+.prompt-list-panel,
+.editor-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.prompt-list-panel {
+  overflow: hidden;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-strong);
+}
+
+.panel-heading h2,
+.selected-prompt h2 {
+  margin: 0;
+}
+
+.panel-heading span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.prompt-list {
+  display: grid;
+  max-height: 620px;
+  overflow: auto;
+}
+
+.prompt-item {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  padding: 15px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.prompt-item:hover,
+.prompt-item.active {
+  background: var(--accent-soft);
+}
+
+.prompt-item strong {
+  font-size: 1rem;
+}
+
+.prompt-item small {
+  color: var(--muted);
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #edf0f4;
+  color: #415065;
+  font-size: 0.78rem;
+}
+
+.editor-panel {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+
+.selected-prompt {
+  display: grid;
+  gap: 6px;
+}
+
+.selected-prompt p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+button.secondary {
+  background: var(--surface);
+  color: var(--accent);
+}
+
+button.secondary:hover {
+  background: var(--accent-soft);
+}
+
+.status {
+  min-height: 24px;
+  margin: 0;
+  color: var(--warning);
+  font-weight: 700;
+}
+
+.empty {
+  padding: 18px 16px;
+  color: var(--muted);
+}
+
+@media (max-width: 820px) {
+  .app-shell {
+    width: min(100% - 24px, 680px);
+    padding: 28px 0;
+  }
+
+  .toolbar,
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-list {
+    max-height: 360px;
+  }
+}
