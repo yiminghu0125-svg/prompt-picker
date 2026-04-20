@@ -9,19 +9,23 @@
   <body>
     <main class="app-shell">
       <section class="intro">
-        <p class="eyebrow">Prompt Picker</p>
-        <h1>本機提示詞選擇器</h1>
-        <p>搜尋、篩選、預覽，再把你的內容合成完整提示詞。</p>
+        <div class="intro-top">
+          <p class="eyebrow">Prompt Picker</p>
+          <button id="languageToggle" class="language-toggle" type="button">English</button>
+        </div>
+        <h1 id="appTitle">本機提示詞選擇器</h1>
+        <p id="appSubtitle">搜尋、篩選、預覽，再把你的內容合成完整提示詞。</p>
+        <p id="languageNote" class="language-note">中文版會顯示完整提示詞庫。</p>
       </section>
 
       <section class="toolbar" aria-label="搜尋與分類">
         <label class="search-field">
-          <span>搜尋提示詞</span>
+          <span id="searchLabel">搜尋提示詞</span>
           <input id="searchInput" type="search" placeholder="例如：程式碼、改寫、總結">
         </label>
 
         <label class="category-field">
-          <span>分類</span>
+          <span id="categoryLabel">分類</span>
           <select id="categorySelect"></select>
         </label>
       </section>
@@ -29,7 +33,7 @@
       <section class="workspace">
         <aside class="prompt-list-panel" aria-label="提示詞清單">
           <div class="panel-heading">
-            <h2>提示詞</h2>
+            <h2 id="promptListTitle">提示詞</h2>
             <span id="resultCount">0 筆</span>
           </div>
           <div id="promptList" class="prompt-list"></div>
@@ -37,18 +41,18 @@
 
         <section class="editor-panel" aria-label="提示詞預覽與組合">
           <div class="selected-prompt">
-            <p class="eyebrow">目前選擇</p>
+            <p id="selectedEyebrow" class="eyebrow">目前選擇</p>
             <h2 id="selectedTitle">請選擇一個提示詞</h2>
             <p id="selectedDescription">左側選擇後，這裡會顯示提示詞內容。</p>
           </div>
 
           <label class="field-block">
-            <span>提示詞模板</span>
+            <span id="templateLabel">提示詞模板</span>
             <textarea id="templatePreview" rows="8" readonly></textarea>
           </label>
 
           <label class="field-block">
-            <span>你的內容</span>
+            <span id="userInputLabel">你的內容</span>
             <textarea id="userInput" rows="7" placeholder="把要交給 AI 處理的內容貼在這裡"></textarea>
           </label>
 
@@ -58,7 +62,7 @@
           </div>
 
           <label class="field-block">
-            <span>最終提示詞</span>
+            <span id="finalPromptLabel">最終提示詞</span>
             <textarea id="finalPrompt" rows="10" placeholder="產生後會出現在這裡"></textarea>
           </label>
 
@@ -67,7 +71,8 @@
       </section>
     </main>
 
-    <script src="prompts-data.js"></script>
+    <script src="prompts-data-v8-final.js"></script>
+    <script src="prompts-data-v8-final-en.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
